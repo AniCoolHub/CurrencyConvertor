@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane fx:id="CurrencyConvertor" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="416.0" prefWidth="967.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.anirudha.currencyconverter.FXMLDocumentController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="281.0" minWidth="10.0" prefWidth="267.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="528.0" minWidth="10.0" prefWidth="338.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="379.0" minWidth="10.0" prefWidth="362.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <HBox alignment="CENTER" prefHeight="82.0" prefWidth="717.0" style="-fx-background-color: #E6E6E6; -fx-border-color: black;" GridPane.columnSpan="2147483647">
+         <children>
+            <Label alignment="CENTER" text="Currency Converter" textFill="#0066ff">
+               <font>
+                  <Font name="Tahoma Bold" size="39.0" />
+               </font>
+            </Label>
+         </children>
+         <effect>
+            <Glow level="0.06" />
+         </effect>
+      </HBox>
+      <Label alignment="CENTER" text="Currency Code" GridPane.rowIndex="1">
+         <font>
+            <Font name="Tahoma" size="24.0" />
+         </font>
+         <padding>
+            <Insets left="20.0" right="20.0" />
+         </padding>
+         <GridPane.margin>
+            <Insets left="50.0" right="20.0" />
+         </GridPane.margin>
+      </Label>
+      <Label text="Amount" GridPane.rowIndex="2">
+         <font>
+            <Font name="Tahoma" size="24.0" />
+         </font>
+         <padding>
+            <Insets left="20.0" right="20.0" />
+         </padding>
+         <GridPane.margin>
+            <Insets left="120.0" right="20.0" />
+         </GridPane.margin>
+      </Label>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnSpan="2147483647" GridPane.rowIndex="3">
+         <children>
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#handleBuyAction" style="-fx-border-color: black; -fx-background-color: #000000;" text="Buy" textFill="WHITE">
+               <font>
+                  <Font name="Tahoma" size="20.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="-100.0" right="20.0" />
+               </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#handleSellAction" style="-fx-border-color: black; -fx-background-color: #000000;" text="Sell" textFill="WHITE">
+               <font>
+                  <Font name="Tahoma" size="20.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="20.0" right="20.0" />
+               </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#handleExitAction" style="-fx-border-color: black; -fx-background-color: #000000;" text="Exit" textFill="WHITE">
+               <font>
+                  <Font name="Tahoma" size="20.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+      <Label text="Value" GridPane.rowIndex="4">
+         <font>
+            <Font name="Tahoma" size="24.0" />
+         </font>
+         <GridPane.margin>
+            <Insets left="150.0" right="20.0" />
+         </GridPane.margin>
+      </Label>
+      <TextField fx:id="fxCurrencyCode" prefHeight="46.0" prefWidth="164.0" promptText="e.g. USD, JPY" style="-fx-border-color: black; -fx-background-color: #C2E0FF;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <effect>
+            <InnerShadow blurType="ONE_PASS_BOX" />
+         </effect>
+         <GridPane.margin>
+            <Insets left="10.0" right="10.0" />
+         </GridPane.margin>
+      </TextField>
+      <TextField fx:id="fxAmount" promptText="Enter Amount" style="-fx-border-color: black; -fx-background-color: #C2E0FF;" GridPane.columnIndex="1" GridPane.rowIndex="2">
+         <font>
+            <Font name="Tahoma" size="20.0" />
+         </font>
+         <GridPane.margin>
+            <Insets left="10.0" right="10.0" />
+         </GridPane.margin>
+         <effect>
+            <InnerShadow blurType="ONE_PASS_BOX" />
+         </effect>
+      </TextField>
+      <TextField fx:id="fxValue" editable="false" promptText="Calculated value" style="-fx-border-color: black; -fx-background-color: #C2E0FF;" GridPane.columnIndex="1" GridPane.rowIndex="4">
+         <font>
+            <Font name="Tahoma" size="20.0" />
+         </font>
+         <effect>
+            <InnerShadow blurType="ONE_PASS_BOX" />
+         </effect>
+         <GridPane.margin>
+            <Insets left="10.0" right="10.0" />
+         </GridPane.margin>
+      </TextField>
+      <Label fx:id="ccRequired" alignment="CENTER" textFill="#eb092e" GridPane.columnIndex="2" GridPane.rowIndex="1">
+         <font>
+            <Font name="Tahoma Bold" size="19.0" />
+         </font>
+         <GridPane.margin>
+            <Insets left="30.0" />
+         </GridPane.margin>
+      </Label>
+      <Label fx:id="amountRequired" alignment="CENTER" textFill="#eb092e" GridPane.columnIndex="2" GridPane.rowIndex="2">
+         <font>
+            <Font name="Tahoma Bold" size="19.0" />
+         </font>
+         <GridPane.margin>
+            <Insets left="30.0" />
+         </GridPane.margin>
+      </Label>
+      <Label fx:id="valueRequired" textFill="#da0c0c" GridPane.columnIndex="2" GridPane.rowIndex="4">
+         <GridPane.margin>
+            <Insets left="30.0" />
+         </GridPane.margin>
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+   </children>
+</GridPane>
